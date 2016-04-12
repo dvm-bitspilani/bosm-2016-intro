@@ -1,0 +1,143 @@
+
+
+
+html{
+  overflow: hidden;
+  margin: 0;
+}
+body{
+  margin: 0;
+  background-image: url('../img/STADIUM BOSM.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-origin: 0 0;
+}
+
+#countdown{
+  position: relative;
+  top: 15.3%;
+  width:100vw;
+}
+
+
+canvas {
+  display: block;
+  width: 200px;
+  height: 25px;
+  margin: 0 auto;
+}
+
+
+#runningMan1,#runningMan2,#runningMan3{
+  height: auto;
+  width:35%;
+  /*-webkit-transform: scale(1,-1);
+  -webkit-animation: run 5s linear infinite;
+  animation: run 5s linear infinite;*/
+}
+/*
+#back{
+background:  url('../img/STADIUM BOSM.png');
+      background-size: 100vw 100vh;
+      background-position: center top;
+      width:100vw;
+      height: 100vh;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      margin:0;
+      position: absolute;
+      z-index: -1;
+      top:0;
+      left: 0;
+  transition: -webkit-filter 0.5s, -moz-filter 0.5s,-o-filter 0.5s,-ms-filter 0.5s,filter 0.5s,opacity 0.5s;
+}
+
+
+#back:hover{
+  display:block;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    opacity: 0.1;
+}
+*/
+/*
+#runningMan1{
+ position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+#runningMan2{
+ position: relative;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 4;
+}
+
+
+#runningMan3{
+  position: relative;
+  top: 70%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+*/
+
+#wrap1{
+  position: absolute;
+  top: 35%;
+  left: -3%;
+  transform: translateY(-50%);
+  width: 100vw;
+}
+
+
+#wrap2{
+  position: absolute;
+  top: 42%;
+  left: -5%;
+  transform: translateY(-40%);
+  width: 100vw;
+}
+
+
+
+#wrap3{
+  position: absolute;
+  top: 49%;
+  left:-7%; 
+  transform: translateY(-30%);
+  width: 100vw;
+}
+
+
+
+
+@-webkit-keyframes run {
+  from {
+    -webkit-transform: translateX(0vw);
+    transform: translateX(0vw);
+  }
+  to {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes run {
+  from {
+    -webkit-transform: translateX(0vw);
+    transform: translateX(0vw;
+  }
+  to {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+  }
+}
+
+
