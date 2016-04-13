@@ -17,7 +17,7 @@ if ( can ) {
   countdown.appendChild( c );
 }
 
-var end = new Date(new Date().getUTCFullYear(), 8, 20, 0, 0);
+var end = new Date(new Date().getUTCFullYear(), 8, 15, 0, 0);
 
 var _second = 1000;
 var _minute = _second * 60;
