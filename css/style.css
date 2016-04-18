@@ -1,248 +1,133 @@
 
-
-
-html{
-  overflow: hidden;
-  margin: 0;
-}
 body{
-  margin: 0;
-  background-image: url('../img/STADIUM BOSM.png');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: 100vw 100vh;
-  background-origin: 0 0;
+	background-color: #8ECDD2;
+	/* background-image: url(../img/ground.svg); */
+	background-size:100% 100%;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	/* background-origin: padding-box; */
+	background-position: center top;
 }
 
-@media screen and (max-width: 1100px) {
-  body{
-    background-size: cover;
-  }
+img{
+	position: absolute;
+	/* width:100%; */
 }
 
-#countdown{
-  position: relative;
-  top: 20%;
-  width:100vw;
+ #ground{
+	z-index: 10;
+	bottom: 0;
+	width: 100%;
+	left: 0;
 }
 
-
-canvas {
-  display: block;
-  width: 200px;
-  height: 25px;
-  margin: 0 auto;
+#clouds{
+	top:20%;
+	left:0;
 }
 
-
-#runningMan1,#runningMan2,#runningMan3{
-  height: auto;
-
-  width:35px;
-  /*-webkit-transform: scale(1,-1);
-  -webkit-animation: run 5s linear infinite;
-  animation: run 5s linear infinite;*/
-}
-/*
-#back{
-
-background:  url('../img/STADIUM BOSM.png');
-      background-size: 100vw 100vh;
-      background-position: center top;
-      width:100vw;
-      height: 100vh;
-      background-repeat: no-repeat;
-      overflow: hidden;
-      margin:0;
-      position: absolute;
-      z-index: -1;
-      top:0;
-      left: 0;
-  transition: -webkit-filter 0.5s, -moz-filter 0.5s,-o-filter 0.5s,-ms-filter 0.5s,filter 0.5s,opacity 0.5s;
+#timer{
+	width:100vw;
+	top:0;
+	left:0;
 }
 
+#sun{
+	right:18%;
+	top:0;
+	width:10%;
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
 
-#back:hover{
-  display:block;
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px);
-    opacity: 0.1;
-}
-*/
-/*
-#runningMan1{
- position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
+	-webkit-animation: rotate 20s linear infinite;
+	-moz-animation: rotate 20s linear infinite;
+	-o-animation: rotate 20s linear infinite;
+	animation: rotate 20s linear infinite;
+	-ms-animation: rotate 20s linear infinite;
 }
 
-#runningMan2{
- position: relative;
-  top: 60%;
-  transform: translateY(-50%);
-  z-index: 4;
+@keyframes rotate{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes rotate{
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	100%{
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes rotate{
+	0%{
+		-moz-transform: rotate(0deg);
+	}
+	100%{
+		-moz-transform: rotate(360deg);
+	}
+}
+@-o-keyframes rotate{
+	0%{
+		-o-transform: rotate(0deg);
+	}
+	100%{
+		-o-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes rotate{
+	0%{
+		-ms-transform: rotate(0deg);
+	}
+	100%{
+		-ms-transform: rotate(360deg);
+	}
 }
 
-
-#runningMan3{
-  position: relative;
-  top: 70%;
-  transform: translateY(-50%);
-  z-index: 5;
-}
-*/
-
-#wrap1{
-  position: absolute;
-  top: 35%;
-  left: -3%;
-  transform: translateY(-50%);
-  width: 100vw;
-}
-
-
-#wrap2{
-  position: absolute;
-  top: 42%;
-  left: -5%;
-  transform: translateY(-40%);
-  width: 100vw;
+#shuttleMountain{
+	z-index:2;
+	width: 15%;
+	bottom: 0;
+	left: 11%;
 }
 
 
-
-#wrap3{
-  position: absolute;
-  top: 49%;
-  left:-7%; 
-  transform: translateY(-30%);
-  width: 100vw;
+#waterBuilding{
+	z-index:1;
+	height:35%;
+	bottom: -5%;
+	left:38%;
 }
 
-
-
-#fblike{
-  position: absolute;
-  bottom: 3%;
-  left:3%;
-  width:200px;
-  height: 21px;
+#coconutBuilding{
+	z-index:2;
+	width:10%;
+	left: 51%;
+	bottom:0%;
 }
 
-
-@media and (max-width: 800px) {
-  #wrap3{
-    left:60%;
-  }
+#bottleBuilding{
+	z-index: 12;
+	bottom:0;
+	right:-10%;
 }
 
-/* [Object] Modal
- * =============================== */
-#modal3,#modal2 {
-  display:none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: left;
-  background: rgba(0,0,0, .5);
+#mineralBuilding{
+	z-index:2;
+	height:30%;
+	right: 13%;
+	bottom:0%;
 }
 
-.modal__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  cursor: pointer;
+#balloon{
+	width: 4%;
+	right: 10%;
+	top:25%;
 }
 
-/* .modal-state:checked + .modal {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-state:checked + .modal .modal__inner {
-  top: 0;
-} */
-
-.modal__inner {
- transition: top .25s ease;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  margin: auto;
-  overflow: auto;
-  background: #fff;
-  border-radius: 5px;
-  padding: 1em 2em;
-  height: 50%;
-}
-
-.modal__close {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  width: 1.1em;
-  height: 1.1em;
-  cursor: pointer;
-}
-
-.modal__close:after,
-.modal__close:before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 1.5em;
-  background: #ccc;
-  display: block;
-  transform: rotate(45deg);
-  left: 50%;
-  margin: -3px 0 0 -1px;
-  top: 0;
-}
-
-.modal__close:before {
-  transform: rotate(-45deg);
-}
-
-@media screen and (max-width: 768px) {
-  
-  .modal__inner {
-    width: 90%;
-    height: 90%;
-    box-sizing: border-box;
-  }
-}
-
-
-
-@-webkit-keyframes run {
-  from {
-    -webkit-transform: translateX(0vw);
-    transform: translateX(0vw);
-  }
-  to {
-    -webkit-transform: translateX(100vw);
-    transform: translateX(100vw);
-  }
-}
-
-@keyframes run {
-  from {
-    -webkit-transform: translateX(0vw);
-    transform: translateX(0vw;
-  }
-  to {
-    -webkit-transform: translateX(100vw);
-    transform: translateX(100vw);
-  }
-}
