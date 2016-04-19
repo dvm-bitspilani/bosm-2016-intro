@@ -1,45 +1,59 @@
 <html>
 
 <head>
-    <title>
-        BOSM 2016 | GRIT GUT GLORY | BITS Pilani
-    </title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/jquery.min.js"></script>
+	<title>
+		BOSM 2016 | GRIT GUT GLORY | BITS Pilani
+	</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/jquery.min.js"></script>
 </head>
 
 <body>
-   <img id="balloon" src="./img/balloon.svg" alt="">
-   <img id="clouds" src="./img/clouds.svg" alt="">
-   <img id="bottleBuilding" src="./img/bottle_building.svg" alt="">
-   <img id="coconutBuilding" src="./img/coconut_building.svg" alt="">
-   <img id="mineralBuilding" src="./img/mineral_building.svg" alt="">
-   <img id="shuttleMountain" src="./img/shuttle_mountain.svg" alt="">
-   <img id="sun" src="./img/sun.svg" alt="">
-   <img id="timer" src="./img/timer.svg" alt="">
-   <img id="waterBuilding" src="./img/water_building.svg" alt="">
-   <img id="ground" src="./img/ground.svg" alt="">
+	<div id="nav">
+	<div id="about"><p>About</p></div><!--
+	--><div id="contact"><p>Contact</p></div><!--
+--><div id="sponsors"><p>Sponsors</p></div>
+</div>
+<img id="balloon" src="./img/balloon.svg" alt="">
+<img id="clouds" src="./img/clouds.svg" alt="">
+<img id="bottleBuilding" src="./img/bottle_building.svg" alt="">
+<img id="coconutBuilding" src="./img/coconut_building.svg" alt="">
+<img id="mineralBuilding" src="./img/mineral_building.svg" alt="">
+<img id="shuttleMountain" src="./img/shuttle_mountain.svg" alt="">
+<img id="sun" src="./img/sun.svg" alt="">
+<img id="timer" src="./img/timer.svg" alt="">
+<img id="logo" src="./img/logo.png" alt="">
+<img id="waterBuilding" src="./img/water_building.svg" alt="">
+<div id="game">
+	<img id="ground" src="./img/ground.svg" alt="">
+	<div id="hurdleWrap">
+		<img class="hurdle" src="./img/hurdle.png" alt=""><img class="hurdle" src="./img/hurdle.png" alt=""><img class="hurdle" src="./img/hurdle.png" alt=""><img class="hurdle" src="./img/hurdle.png" alt="">
+	</div>
+</div>
 <script>
 	$("#clouds").animate({
 		left:'100vw'
 	},20000);
 	$("#sun").animate({
 		top: '10%'
-	},1200)
+	},1200);
+	$("#balloon").delay(500).animate({
+		top: '25%'
+	},1200);
 	$("#shuttleMountain").animate({
 		bottom: '22%'
-	},1200);
+	},1500);
 	$("#waterBuilding").delay(800).animate({
 		bottom: '27%'
 	},1200);
 	$("#coconutBuilding").delay(1500).animate({
-		bottom: '30%'
+		bottom: '27%'
 	},1500);
 	$("#bottleBuilding").animate({
 		right: '20%'
 	},2000);
 	$("#mineralBuilding").delay(1000).animate({
-		bottom: '30%'
+		bottom: '27%'
 	},1500);
 </script>
 </body>

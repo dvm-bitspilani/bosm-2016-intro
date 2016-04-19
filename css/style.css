@@ -14,11 +14,47 @@ img{
 	/* width:100%; */
 }
 
+#nav{
+	/* background: url(../img/timer.svg);
+	background-position: center top;
+	background-size: cover; */
+	position: absolute;
+	display:inline;
+	z-index: 2;
+	top:-1%;
+	left:0;
+	width: 100vw;
+	/* height:auto; */
+}
+#nav div{
+	display:inline;
+}
+
+/* #game{
+	position: absolute;
+	width:100vw;
+}
+ */
  #ground{
+ 	position: absolute;
 	z-index: 10;
 	bottom: 0;
 	width: 100%;
 	left: 0;
+	/* height:100vh; */
+}
+
+#hurdleWrap{
+	position: absolute;
+	width:100%;
+	z-index:14;
+	bottom:1%;
+}
+
+.hurdle{
+	position: relative !important;
+	width:15%;
+	padding-left:10%;
 }
 
 #clouds{
@@ -26,10 +62,16 @@ img{
 	left:0;
 }
 
-#timer{
+ #timer{
 	width:100vw;
-	top:0;
+	top:-1%;
 	left:0;
+} 
+
+#logo{
+	top:2%;
+	width:8%;
+	left:47%;
 }
 
 #sun{
@@ -113,7 +155,7 @@ img{
 }
 
 #bottleBuilding{
-	z-index: 12;
+	z-index: 20;
 	bottom:0;
 	right:-10%;
 }
@@ -128,6 +170,6 @@ img{
 #balloon{
 	width: 4%;
 	right: 10%;
-	top:25%;
+	top:-10%;
 }
 
