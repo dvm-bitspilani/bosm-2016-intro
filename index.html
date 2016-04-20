@@ -19,55 +19,13 @@
 <img id="balloon" src="./img/balloon.svg" alt="">
 <div id="game">
 </div>
+<div id="bottomCover"></div>
 <img id="sun" src="./img/sun.svg" alt="">
 <img id="clouds" src="./img/clouds.svg" alt="">
 <img id="clouds2" src="./img/clouds.svg" alt="">
 <img id="timer" src="./img/timer.svg" alt="">
 
 <script>
-$("#sun").animate({
-		top: '10%'
-	},1200);
-$("#balloon").delay(500).animate({
-		top: '30%'
-	},1200);
-$("#clouds").animate({
-	left:'100vw'
-},20000);
-$("#clouds2").animate({
-	left:'100vw'
-},15000);
-function cloudanimate() {
-	$("#clouds").animate({
-	left:'100vw'
-	},20000);
-}
-
-
-function cloudanimate2() {
-	$("#clouds2").animate({
-	left:'100vw'
-},15000);
-}
-/*setInterval(function(){
-	$("#clouds").css({'left','0'});
-},20000);*/
-var cloudsjs=document.getElementById('clouds');
-
-$(function(){
-	setInterval(function(){
-	if(cloudsjs.style.left=='100vw'){
-		cloudsjs.style.left='-5vw';
-		cloudanimate();
-	}
-	if(cloudsjs.style.left=='100vw'){
-		cloudsjs.style.left='-5vw';
-		cloudanimate();
-	}
-},1000);
-
-});
-
 
 	/*---------------GAME------------------*/
 
@@ -77,11 +35,15 @@ $(function(){
 
     game.load.image('ground', './img/ground.svg');
     game.load.image('shuttleMountain','./img/shuttle_mountain.svg');
-    game.load.image('waterBuilding','./img/water_building.svg');
+    
     game.load.image('coconutBuilding','./img/coconut_building.svg');
     game.load.image('bottleBuilding','./img/bottle_building.svg');
     game.load.image('mineralBuilding','./img/mineral_building.svg');
+    game.load.image('tree1','./img/tree1.svg');
+    game.load.image('tree2','./img/tree2.svg');    
+    game.load.image('mushroom','./img/mushroom.svg');
     game.load.image('clouds','./img/clouds.svg');
+    game.load.image('waterBuilding','./img/water_building.svg');
    	// game.load.image('sky', './img/sky.svg');
    	
     game.load.image('hurdleImg','./img/hurdlex.png');
@@ -90,7 +52,7 @@ $(function(){
 	}
 
 	var platforms;
-	var graphics;
+	var graphics,groundELem,graphics1,graphics2;
 	var cursors;
 	var player;
 	var man;
@@ -99,10 +61,8 @@ $(function(){
 	var score=0;
 	var scoreText;
 	var hurdle;
-	var shuttleMountain;
-	var waterBuilding;
-	var coconutBuilding;
-	var bottleBuilding,mineralBuilding,clouds;
+	var shuttleMountain,waterBuilding,coconutBuilding, bottleBuilding,mineralBuilding,clouds;
+	var tree2,tree1,mushroom;
 	function create() {
 		game.stage.backgroundColor = '#8ECDD2;';
 		 //  We're going to be using physics, so enable the Arcade Physics system
@@ -112,21 +72,23 @@ $(function(){
     // game.add.sprite(0, 0, 'sky');
 
 
-    graphics = game.add.group();
+    graphics1 = game.add.group();
+    graphics2 = game.add.group();
 
-	 graphics.enableBody=true;
-	 shuttleMountain = graphics.create(80,160,'shuttleMountain');
+
+	 graphics1.enableBody=true;
+	 graphics2.enableBody=true;
+	 shuttleMountain = graphics1.create(80,160,'shuttleMountain');
 	 shuttleMountain.scale.setTo(0.4,0.4);
-	 coconutBuilding=graphics.create(550,120,'coconutBuilding');
+	 coconutBuilding=graphics1.create(550,120,'coconutBuilding');
 	 coconutBuilding.scale.setTo(0.8,0.8);
-	 bottleBuilding=graphics.create(800,90,'bottleBuilding');
-	 mineralBuilding=graphics.create(1000,60,'mineralBuilding');
+	 bottleBuilding=graphics1.create(800,90,'bottleBuilding');
+	 mineralBuilding=graphics2.create(1000,60,'mineralBuilding');
 
 	 bottleBuilding.scale.setTo(0.5,0.5);
 
-	 clouds=graphics.create(0,10,'clouds');
-	 clouds.scale.setTo(0.6,0.6);
-	 waterBuilding =graphics.create(300,80,'waterBuilding');
+	
+	 waterBuilding =graphics2.create(300,80,'waterBuilding');
 	 waterBuilding.scale.setTo(0.5,0.5);
 
 
@@ -148,7 +110,21 @@ $(function(){
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    
+    groundELem=game.add.group();
+    groundELem.enableBody=true;
+
+     clouds=groundELem.create(0,10,'clouds');
+	 clouds.scale.setTo(0.6,0.6);
+	 clouds.enableBody=true;
+    tree1=groundELem.create(750,game.world.height - 240,'tree1');
+    tree1.scale.setTo(0.4,0.4);
+    tree1.enableBody=true;
+    tree2=groundELem.create(220,game.world.height - 210,'tree2');
+    tree2.scale.setTo(0.27,0.27);
+    tree2.enableBody=true;
+    mushroom=groundELem.create(150,game.world.height - 170,'mushroom');
+    mushroom.scale.setTo(0.4,0.4);
+    mushroom.enableBody=true;
 
     hurdles=game.add.group();
     hurdles.enableBody=true;
@@ -169,8 +145,15 @@ $(function(){
 
 
    	setInterval(function(){
-   		clouds=graphics.create(0-game.world.randomX,10*(1+Math.random()),'clouds');
+   		clouds=groundELem.create(0-game.world.randomX,10*(1+Math.random()),'clouds');
    		clouds.scale.setTo(0.6,0.6);
+
+    tree1=groundELem.create(game.world.width+game.world.randomX,game.world.height - 240,'tree1');
+    tree1.scale.setTo(0.4,0.4);
+    tree2=groundELem.create(game.world.width+game.world.randomX,game.world.height - 210,'tree2');
+    tree2.scale.setTo(0.27,0.27);
+    mushroom=groundELem.create(game.world.width+game.world.randomX,game.world.height - 170,'mushroom');
+    mushroom.scale.setTo(0.4,0.4);
    	},4000);
 
      player=game.add.sprite(200,150,'dude');
@@ -190,8 +173,17 @@ $(function(){
 	}
 
 	function update() {
+		shuttleMountain.body.velocity.x=-10;
+		coconutBuilding.body.velocity.x=-10;
+		bottleBuilding.body.velocity.x=-10;/*
+		mineralBuilding.body.velocity.x=-20;
+		waterBuilding.body.velocity.x=-20;*/
+		// graphics2.body.velocity.x=-2;
 		console.log(Math.floor(game.time.totalElapsedSeconds()));
 		scoreText.text = 'Score: ' + Math.floor(game.time.totalElapsedSeconds());
+		tree1.body.velocity.x=-40;
+		tree2.body.velocity.x=-50;
+		mushroom.body.velocity.x=-70;
 		hurdle.body.velocity.x=-350;
 		clouds.body.velocity.x=30;
 
@@ -231,7 +223,7 @@ $(function(){
 
     // console.log(cursors.up.isDown ,player.body.y,game.world.height);
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && player.body.y>250)
+    if ((cursors.up.isDown || cursors.space.isDown) && player.body.y>250)
     {
         player.body.velocity.y = -800;
     }
