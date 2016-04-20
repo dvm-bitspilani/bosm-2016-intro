@@ -5,15 +5,18 @@
 		BOSM 2016 | GRIT GUT GLORY | BITS Pilani
 	</title>
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="./js/jquery.min.js"></script>
+
 	<script type="text/javascript" src="./js/phaser.min.js"></script>
 </head>
 
 <body>
+<div id="header">
+<div id="countdown"></div>
 	<div id="nav">
 	<div id="about"><p>About</p></div><!--
 	--><div id="contact"><p>Contact</p></div><!--
 --><div id="sponsors"><p>Sponsors</p></div>
+</div>
 </div>
 
 <img id="balloon" src="./img/balloon.svg" alt="">
@@ -21,9 +24,7 @@
 </div>
 <div id="bottomCover"></div>
 <img id="sun" src="./img/sun.svg" alt="">
-<img id="clouds" src="./img/clouds.svg" alt="">
-<img id="clouds2" src="./img/clouds.svg" alt="">
-<img id="timer" src="./img/timer.svg" alt="">
+<!-- <img id="timer" src="./img/timer.svg" alt=""> -->
 
 <script>
 
@@ -46,9 +47,9 @@
     game.load.image('waterBuilding','./img/water_building.svg');
    	// game.load.image('sky', './img/sky.svg');
    	
-    game.load.image('hurdleImg','./img/hurdlex.png');
+    game.load.image('hurdleImg','./img/hurdle.svg');
     // game.load.spritesheet('dude', 'assets/dude.png', 32, 48);*/
-    game.load.spritesheet('dude','./img/seq.png',216,318);
+    game.load.spritesheet('dude','./img/imgseq.png',174,304);
 	}
 
 	var platforms;
@@ -129,14 +130,14 @@
     hurdles=game.add.group();
     hurdles.enableBody=true;
 
-    hurdle=hurdles.create(game.world.width,game.world.height - 100,'hurdleImg');
+    hurdle=hurdles.create(game.world.width,game.world.height - 130,'hurdleImg');
  	hurdle.enableBody=true;
     // hurdle.body.collideWorldBounds=true;
     // hurdle.scale.setTo(0.2,0.2);
 
     setInterval(function(){
     	
-    	hurdle=hurdles.create(game.world.width+game.world.randomX,game.world.height - 100,'hurdleImg');
+    	hurdle=hurdles.create(game.world.width+game.world.randomX,game.world.height - 130,'hurdleImg');
     	score++;
     	hurdle.enableBody=true;
     	// hurdle.body.collideWorldBounds=true;
@@ -173,6 +174,7 @@
 	}
 
 	function update() {
+		//motion after completion of a particular function
 		shuttleMountain.body.velocity.x=-10;
 		coconutBuilding.body.velocity.x=-10;
 		bottleBuilding.body.velocity.x=-10;/*
@@ -241,9 +243,12 @@
     }
 
 }
-
+//game animation translate down up
+//game reset
+//game overlap
 console.log($("#game").children().children());
 </script>
+<script src="./js/timer.js"></script>
 </body>
 
 </html>
