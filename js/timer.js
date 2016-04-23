@@ -86,7 +86,7 @@ for ( var p = 0; p < digits.length; p++ ) {
   var binary = parseInt(digit, 2);
   var zeros = binary;
   var b = parseInt( String(binary).split('').reverse().join(''), 2 );
-  con.log(digit, binary, zeros, b );
+  // con.log(digit, binary, zeros, b );
 }
 
 

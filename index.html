@@ -5,7 +5,7 @@
         BOSM 2016 | GRIT GUT GLORY | BITS Pilani
     </title>
     <link rel="stylesheet" href="./css/style.css">
-
+    <link rel="shortcut icon" href="./img/favicon.ico" /> 
     <script type="text/javascript" src="./js/phaser.min.js"></script>
     <script type="text/javascript" src="./js/jquery.min.js"></script>
 </head>
@@ -13,34 +13,30 @@
 <body>
     <div id="pageWrap">
         <div id="header">
-            <!-- <div id="logoWrap">
-<img id="banner" src="./img/logobanner.svg" alt="">
-<img id="logo" src="./img/logo.png" alt="">
-</div> -->
+           
             <div id="countdown"></div>
             <div id="nav">
                 <div id="about">
                     <p>ABOUT US</p>
                 </div>
-                <!--
--->
                 <div id="contact">
                     <p>CONTACT</p>
                 </div>
-                <!--
--->
                 <div id="sponsors">
                     <p>SPONSORS</p>
                 </div>
             </div>
+            
         </div>
 
 
-
+        <div id="logoWrap">
+            <img id="logo" src="./img/logo.png" alt="">
+        </div>
 
         <img id="balloon" src="./img/balloon.svg" alt="">
         <div id="game">
-        </div>
+        </div> 
         <div id="bottomCover">
               <iframe id="fblike"src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbosmbitspilani&amp;
             width=200&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;
@@ -48,34 +44,37 @@
 
         </div>
         <img id="sun" src="./img/sun.svg" alt="">
+      
     </div>
 
 
+
+
     <div id="contentWrap">
-        <div id="back"></div>
-        <div id="centerDiv">
-            <div id="close">X</div>
+        <div class="back"></div>
+        <div class="centerDiv">
+            <div class="close">X</div>
             <div id="headWrap">
                 <div id="headTitle">
-                    ABOUT US
+                    
                 </div>
             </div>
-            <div id="textArea">
-                <div id="textWrap">
-                    
+            <div class="textArea">
+                <div class="textWrap">
                 </div>
             </div>
         </div>
     </div>
     <!-- <img id="timer" src="./img/timer.svg" alt=""> -->
     <script>
+        var sun=document.getElementById('sun');
         // $("#contentWrap").hide();
         $("#about").click(function() {
-            $("#headTitle").html("ABOUT");
-            $("#textWrap").html(' <h4 style="text-align:center;">"Courage is not the absence of fear. It is being afraid but being able to control that fear so that you are able to perform at your highest ability. That\'s what makes a champion."                    </h4> Because champions rise, champions fall, rise again, win it all. It is not about winning, it is about taking part and becoming your own potential.                     <br><br>                    The BITS Open Sports Meet, or BOSM, as all know it, is one of the largest student managed Sports fests of the country.                    <br>                     The four-day festival encompasses everything about sports.                    <br><br>                    Aimed at providing a platform to colleges from all over India to showcase their talents, promoting healthy competition, it gives attendees an opportunity to take part in a variety of sports and events.                    <br><br>                     With the last year\'s edition witnessing phenomenal participation from colleges both from India and abroad, the 31st edition guarantees excitement well supplemented by floodlit matches in the evening and the unbridled enthusiasm of the crowds for highly competitive track and off-track events, in the true spirit of sportsmanship and camaraderie.<br><br> 15th September - 19th September. BOSM 2016.<br><br>Come, battle it out, with grit and guts, in pursuit of glory.');
+            $("#headTitle").html("ABOUT US");
+            $(".textWrap").html(' <h4 style="text-align:center;">"Courage is not the absence of fear. It is being afraid but being able to control that fear so that you are able to perform at your highest ability. That\'s what makes a champion."</h4> Because champions rise, champions fall, rise again, win it all. It is not about winning, it is about taking part and becoming your own potential.<br><br>The BITS Open Sports Meet, or BOSM, as all know it, is one of the largest student managed Sports fests of the country.<br>The four-day festival encompasses everything about sports.<br><br>Aimed at providing a platform to colleges from all over India to showcase their talents, promoting healthy competition, it gives attendees an opportunity to take part in a variety of sports and events.<br><br>With the last year\'s edition witnessing phenomenal participation from colleges both from India and abroad, the 31st edition guarantees excitement well supplemented by floodlit matches in the evening and the unbridled enthusiasm of the crowds for highly competitive track and off-track events, in the true spirit of sportsmanship and camaraderie.<br><br> 15th September - 19th September. BOSM 2016.<br><br>Come, battle it out, with grit and guts, in pursuit of glory.');
             $("#contentWrap").addClass('visible');
             $("#pageWrap").addClass('blur');
-            $("#centerDiv").animate({
+            $("#contentWrap .centerDiv").animate({
                 top: '52%'
             }, 1000);
         });
@@ -84,9 +83,9 @@
             $("#headTitle").html("CONTACT");
 
             $("#contentWrap").addClass('visible');
-            $("#textWrap").html('<ul class="subcategory"><li><b>For Correspondence, Registration and Invites</b><br>Vineet Bhat<br>+91-9660577340<br>pcr@bits-bosm.org</li><li><b>Sports Secretary</b><br>Shambhavi Mehrotra<br>+91-8290900449<br>shambhavi@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Scheduling and Events</b><br>Neil Dave<br>+91-9772211599 <br>controlz@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Govinda Nathani<br>+91-8503857881<br>govinda@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Reception and Accommodation:</b><br>Basudev Choudhury<br>+91-9929082070<br>recnacc@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Amolak Singh<br>+91-9772234241<br>amolak@bits-bosm.org </li></ul><ul class="subcategory"><li><b>For Sponsorship and Marketing</b><br>Vishesh Sharma<br>+91-7728807829<br>vishesh@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Akshat Dubey<br>+91-9462181899<br>akshat@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Website Related Queries</b><br>webmaster@bits-bosm.org</li></ul>');
+            $(".textWrap").html('<ul class="subcategory"><li><b>For Correspondence, Registration and Invites</b><br>Vineet Bhat<br>+91-9660577340<br>pcr@bits-bosm.org</li><li><b>Sports Secretary</b><br>Shambhavi Mehrotra<br>+91-8290900449<br>shambhavi@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Scheduling and Events</b><br>Neil Dave<br>+91-9772211599 <br>controlz@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Govinda Nathani<br>+91-8503857881<br>govinda@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Reception and Accommodation:</b><br>Basudev Choudhury<br>+91-9929082070<br>recnacc@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Amolak Singh<br>+91-9772234241<br>amolak@bits-bosm.org </li></ul><ul class="subcategory"><li><b>For Sponsorship and Marketing</b><br>Vishesh Sharma<br>+91-7728807829<br>vishesh@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Akshat Dubey<br>+91-9462181899<br>akshat@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Website Related Queries</b><br>webmaster@bits-bosm.org</li></ul>');
             $("#pageWrap").addClass('blur');
-            $("#centerDiv").animate({
+            $("#contentWrap .centerDiv").animate({
                 top: '52%'
             }, 1000);
         });
@@ -97,15 +96,15 @@
             $("#headTitle").html("SPONSORS");
 
             $("#contentWrap").addClass('visible');
-            $("#textWrap").html('Click to view Sponsorship Brochure of BOSM 2016<br>Click to view Last Year\'s Sponsors');
+            $(".textWrap").html('Click to view Sponsorship Brochure of BOSM 2016<br>Click to view Last Year\'s Sponsors');
             $("#pageWrap").addClass('blur');
-            $("#centerDiv").animate({
+            $("#contentWrap .centerDiv").animate({
                 top: '52%'
             }, 1000);
         });
-        $("#close").click(function() {
+        $(".close,.back").click(function() {
 
-            $("#centerDiv").animate({
+            $(".centerDiv").animate({
                 top: '50%',
             }, 1000);
             setTimeout(function() {
@@ -175,16 +174,19 @@
             graphics1.enableBody = true;
 
 
-
+            if(window.innerWidth>940){
 
             waterBuilding = graphics2.create(300, 80, 'waterBuilding');
             waterBuilding.scale.setTo(0.5, 0.5);
+        }
+            
 
             mineralBuilding = graphics2.create(1000, 125, 'mineralBuilding');
             mineralBuilding.scale.setTo(0.65,0.65);
+            if(window.innerWidth>560){
             shuttleMountain = graphics1.create(80, 160, 'shuttleMountain');
             shuttleMountain.scale.setTo(0.1, 0.1);
-            coconutBuilding = graphics1.create(550, 120, 'coconutBuilding');
+}            coconutBuilding = graphics1.create(550, 120, 'coconutBuilding');
             coconutBuilding.scale.setTo(0.8, 0.8);
             bottleBuilding = graphics1.create(800, 22, 'bottleBuilding');
             bottleBuilding.scale.setTo(0.65,0.65);
@@ -197,23 +199,22 @@
 
             //  We will enable physics for any object that is created in this group
             platforms.enableBody = true;
-
+50
             // Here we create the ground.
 
             // waterBuilding= game.add.sprite()
-            ground = platforms.create(0, game.world.height - 230, 'ground');
+            ground = platforms.create(-40, game.world.height - 230, 'ground');
 
 
             //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-            ground.scale.setTo(0.7, 0.7);
+            ground.scale.setTo(1.2, 0.7);
 
             //  This stops it from falling away when you jump on it
             ground.body.immovable = true;
 
             groundELem = game.add.group();
             groundELem.enableBody = true;
-
-            clouds = groundELem.create(0, 10, 'clouds');
+                clouds = groundELem.create(0, 10, 'clouds');
             clouds.scale.setTo(0.6, 0.6);
             clouds.enableBody = true;
             tree1 = groundELem.create(750, game.world.height - 240, 'tree1');
@@ -230,14 +231,26 @@
             hurdles.enableBody = true;
 
             hurdle = hurdles.create(game.world.width, game.world.height - 130, 'hurdleImg');
-            hurdle.enableBody = true;
+            
             // hurdle.body.collideWorldBounds=true;
-            // hurdle.scale.setTo(0.2,0.2);
-
+            if(window.innerWidth<400){
+                 hurdle = hurdles.create(game.world.width, game.world.height - 85, 'hurdleImg');
+            hurdle.scale.setTo(0.6,0.6);
+            }
+            else{
+                 hurdle = hurdles.create(game.world.width, game.world.height - 130, 'hurdleImg');
+            }
+            hurdle.enableBody = true;
             setInterval(function() {
 
-                hurdle = hurdles.create(game.world.width + game.world.randomX, game.world.height - 130, 'hurdleImg');
-                score++;
+               if(window.innerWidth<400){
+                 hurdle = hurdles.create(game.world.width+game.world.randomX, game.world.height - 85, 'hurdleImg');
+            hurdle.scale.setTo(0.6,0.6);
+            }
+            else{
+                 hurdle = hurdles.create(game.world.width+game.world.randomX, game.world.height - 130, 'hurdleImg');
+            }
+                
                 hurdle.enableBody = true;
                 // hurdle.body.collideWorldBounds=true;
                 // hurdle.scale.setTo(0.2,0.2);
@@ -254,10 +267,14 @@
                 tree2.scale.setTo(0.27, 0.27);
                 mushroom = groundELem.create(game.world.width + game.world.randomX, game.world.height - 170, 'mushroom');
                 mushroom.scale.setTo(0.4, 0.4);
-            }, 10000);
-
-            player = game.add.sprite(200, 150, 'dude');
-            player.scale.setTo(0.6, 0.6);
+            }, 8000);
+            player = game.add.sprite(20, 150, 'dude');
+            if(window.innerWidth<400){
+            
+            player.scale.setTo(0.4, 0.4);
+            }
+            else
+                player.scale.setTo(0.6,0.6);
             game.physics.arcade.enable(player);
             player.body.bounce.y = 0.2;
             player.body.gravity.y = 1000;
@@ -265,17 +282,26 @@
 
             player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10, true);
             // player.animations.play('walk');
+
+            if(window.innerWidth<575)
+            scoreText = game.add.text(50, 220, 'Score: 0', {
+                fontSize: '32px',
+                fill: '#fff'
+            });
+        else
             scoreText = game.add.text(100, 100, 'Score: 0', {
                 fontSize: '32px',
                 fill: '#fff'
             });
+             // scoreText.body.collideWorldBounds=true;
 
             //  Our controls.
             cursors = game.input.keyboard.createCursorKeys();
 
         }
-
+        var u=0,s;
         function update() {
+            // player.hitArea=-1;
             //motion after completion of a particular function
             // shuttleMountain.body.velocity.x = -10;
             // coconutBuilding.body.velocity.x = -10;
@@ -286,18 +312,24 @@
             mineralBuilding.body.velocity.x=-20;
             waterBuilding.body.velocity.x=-20;*/
             // graphics2.body.velocity.x=-2;
-            console.log(Math.floor(game.time.totalElapsedSeconds()));
-            score = Math.floor(game.time.totalElapsedSeconds())
+            // // console.log(Math.floor(game.time.totalElapsedSeconds()));
+            // score = Math.floor(game.time.totalElapsedSeconds())
+            u++;
+            if(u%100==0)
+                score++;
             scoreText.text = 'Score: ' + score;
             tree1.body.velocity.x = -40;
             tree2.body.velocity.x = -50;
             mushroom.body.velocity.x = -70;
-
-            hurdle.body.velocity.x = -(350 + (80 * Math.floor(score / 10)));
+            if(window.innerWidth<560)
+                s=0.5;
+            else
+                s=1;
+            hurdle.body.velocity.x = -s*(350 + (80 * Math.floor(score / 10)));
             clouds.body.velocity.x = 30;
 
             // //  Collide the player and the stars with the platforms
-            // game.physics.arcade.collide(player, platforms);
+             // game.physics.arcade.collide(player, scoreText);
             player.animations.play('walk');
 
 
@@ -310,11 +342,17 @@
 
             if (cursors.left.isDown) {
                 //  Move to the left
+                if(window.innerWidth<400)
+                player.body.velocity.x = -150;    
+                    else
                 player.body.velocity.x = -250;
 
 
-            } else if (cursors.right.isDown) {
+            } else if (cursors.right.isDown && player.body.x<(0.65*window.innerWidth)) {
                 //  Move to the right
+                if(window.innerWidth<400)
+                    player.body.velocity.x = 250;
+                    else
                 player.body.velocity.x = 250;
 
 
@@ -323,9 +361,12 @@
             // console.log(cursors.up.isDown ,player.body.y,game.world.height);
             //  Allow the player to jump if they are touching the ground.
             if ((cursors.up.isDown || cursors.space.isDown) && player.body.y > 250) {
-                player.body.velocity.y = -800;
+                if(window.innerWidth<400)
+                player.body.velocity.y = -400;
+                else
+                player.body.velocity.y = -700;
             }
-
+            console.log(player.body.y);
             function collision(player, hurdle) {
 
 
@@ -342,7 +383,7 @@
         //game animation translate down up
         //game reset
         //game overlap
-        console.log($("#game").children().children());
+        // console.log($("#game").children().children());
     </script>
     <script src="./js/timer.js"></script>
 </body>

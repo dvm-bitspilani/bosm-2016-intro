@@ -1,12 +1,3 @@
-@font-face{
-	font-family: Lato-Light;
-	src: url(./Lato-Light.ttf);
-}
-
-@font-face{
-	font-family: Lato-Bold;
-	src: url(./Lato-Bold.ttf);
-}
 
 @font-face{
 	font-family: Lato;
@@ -16,23 +7,11 @@
 	font-family: League-Spartan;
 	src: url(./leaguespartan-bold.ttf);
 }
-@font-face{
-	font-family: GT-Welshiem;
-	src: url(./gt-walsheim-web.ttf);
-}
-@font-face{
-	font-family: GT-Welshiem-Lite;
-	src: url(./gt-walsheim-light-web.ttf);
-}
-@font-face{
-	font-family: GT-Welshiem-Bold;
-	src: url(./gt-walsheim-bold-web.ttf);
-}
 body{
 	margin:0;
 	background-color: #8ECDD2;
 	/* background-image: url(../img/ground.svg); */
-	background-size:100% 100%;
+	/* background-size:100vw 100vh; */
 	overflow-x: hidden;
 	background-repeat: no-repeat;
 	/* background-origin: padding-box; */
@@ -55,7 +34,7 @@ canvas{
 	background-size: cover; */
 	position: absolute;
 	/* display:inline; */
-	z-index: 22;
+	z-index: 21;
 	top:0;
 	left:0;
 	display:block;
@@ -64,14 +43,47 @@ canvas{
 	margin:0;
 	padding: 0.7em 0;
 	background:rgb(47, 28, 16);
+	background-image:url(../img/screws.svg);
+	background-repeat:no-repeat;
+	background-position:center center;
+	/* background- */
 	/* height:auto; */
 }
 
 #logoWrap{
 	position: absolute;
-	
+	display:block;
+	/* margin: 0 auto; */
+	left:-20px;
+	/* transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+ */	width:300px;
+	height:260px;
+	top: -100px;
+	/* padding-top: 92px; */
+	background:rgb(142, 205, 210);
+	z-index:22;
+	border-radius:50%;
 }
 
+#logo{
+	bottom:-20%;
+	left:25%;
+	position: absolute;
+	width:150px;
+	z-index:22;
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	/* margin: 0 auto; */
+	display:block;
+	/* padding-top:22px; */
+}
 
 #banner{
 	width:20em;
@@ -91,8 +103,11 @@ canvas{
 
 #contentWrap{
 	opacity:0;
+	top:0;
+	left:0;
 	display:block;
 	z-index:1000;
+	/* position: absolute; */
 	/* background:rgba(0,0,0,0.5); */
 	height:100%;/* 
 	transition: all 0.2s;
@@ -102,22 +117,28 @@ canvas{
 	/* position: ; */
 }
 
+
+
+
+
 .visible{
 	opacity:1 !important;
 }
 
-#back{
+.back{
 	position: absolute;
 	top:0;
 	left:0;
 	z-index:100;
+	
 	width:100vw;
 	height:100vh;
 	background:rgba(0,0,0,0.5);
 }
 
 
-#centerDiv{
+
+.centerDiv{
 	position: relative;
 	top:50%;
 	opacity:0.9;
@@ -150,14 +171,15 @@ canvas{
 	display:block;
 	position:relative;
 	text-align: center;
-	top:22%;
+	top:33%;
 	font-family:League-Spartan,sans-serif;
 	color:white;
-	font-size:2em;
+	font-size:1.25em;
 	/* text-shadow: 20px 10px 10px white; */
 }
 
-#close{
+.close{
+	cursor: pointer;
 	position: absolute;
 	font-family:Lato,sans-serif;
 	color:white;
@@ -168,16 +190,16 @@ canvas{
 	text-shadow: 0 0 5px black;
 
 }
-#textArea{
+.textArea{
 	position: relative;
 	overflow-y: scroll;
 	height:70%;
 }
-#textWrap{
+.textWrap{
 	position: absolute;
 	width:85%;
 	left:8%;
-	overflow-y: hidden;
+	overflow: hidden;
 	font-family:Lato,sans-serif;
 	text-align:center;
 }
@@ -185,6 +207,7 @@ canvas{
 .subcategory{
 	list-style-type:none;
 	margin-bottom: 10px;
+	padding:0;
 }
 .subcategory li{float:right;margin-right: 2%;width:45% ;margin-left: 3%;margin-bottom: 15px;}
 
@@ -203,18 +226,24 @@ canvas{
 	right:3em;
 	margin:0;
 	height:100%;
+	width:28%;
 }
 #nav div{
+	cursor:pointer;
 	display:inline;
 	/* border-radius:2px; */
 	float:left;
 font-family: League-Spartan, sans-serif;
 	color:white;
 	vertical-align:middle;
-	padding:0.2em 1em;
-	margin:10px 0;
+	/* padding:0.2em 1em; */
+	margin:14px 0;
 	transition: background 0.3s,color 0.3s;
+	width: 33.33%;
+text-align: center;
 }
+
+
 
 #nav div p{
 	margin:8.5px 5px;
@@ -233,7 +262,7 @@ font-family: League-Spartan, sans-serif;
 }
 
 #countdown canvas{
-	width:200px;
+	width:180px;
 	background:url(../img/screws.svg);
 	padding: 0 3px;
 	display:block;
@@ -254,7 +283,7 @@ font-family: League-Spartan, sans-serif;
 	position: absolute;
 	bottom:0;
 	width:100vw;
-	height:40%;
+	height:16%;
 	background:#91BC36;
 	/* z-index:-1; */
 }
@@ -267,11 +296,6 @@ font-family: League-Spartan, sans-serif;
 	z-index:20;
 } 
  */
-#logo{
-	top:2%;
-	width:8%;
-	left:47%;
-}
 
 #sun{
 	right:20%;
@@ -345,37 +369,37 @@ font-family: League-Spartan, sans-serif;
 }
 
 
-#textArea::-webkit-scrollbar {
+.textArea::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
-#textArea::-webkit-scrollbar-button {
+.textArea::-webkit-scrollbar-button {
   width: 19px;
   height: 19px;
 }
-#textArea::-webkit-scrollbar-thumb {
+.textArea::-webkit-scrollbar-thumb {
   background: #dd4f4e;
   border: 0px none #ffffff;
   /* border-radius: 87px; */
 }
-#textArea::-webkit-scrollbar-thumb:hover {
+.textArea::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }
-#textArea::-webkit-scrollbar-thumb:active {
+.textArea::-webkit-scrollbar-thumb:active {
   background: #000000;
 }
-#textArea::-webkit-scrollbar-track {
+.textArea::-webkit-scrollbar-track {
   background: #f8eded;
   border: 0px none #ffffff;
   /* border-radius: 13px; */
 }
-#textArea::-webkit-scrollbar-track:hover {
+.textArea::-webkit-scrollbar-track:hover {
   background: #666666;
 }
-#textArea::-webkit-scrollbar-track:active {
+.textArea::-webkit-scrollbar-track:active {
   background: #333333;
 }
-#textArea::-webkit-scrollbar-corner {
+.textArea::-webkit-scrollbar-corner {
   background: transparent;
 }
 
@@ -387,4 +411,66 @@ z-index: 20;
 width: 200px;
 height: 21px;
 left: 3%;
+}
+
+
+
+@media screen and (max-width: 940px ) {
+
+	#header{
+		background-position:50% -20%;
+	}
+
+	#nav{
+		position: relative;
+		right:0;
+		left:10%;
+		width:80%;
+	}
+
+
+	#sun{
+		top:23%;
+		width:68px;
+		height:auto;
+	}
+
+	#balloon{
+		width:27px;
+		height:auto;
+	}
+
+	#logoWrap{
+		background:transparent;
+		top:15%;
+		width:100vw;
+		left:0;
+	}
+
+	#logo{
+		position: relative;
+		display:block;
+		margin:0 auto;
+		left:0;
+		width:100px;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.subcategory li{
+		width:94%;
+		margin-right:3%;
+		margin-left:3%;
+	}
+
+	
+
+	#sun{
+		top:21%;
+		right:13%;
+	}
+
+	#balloon{
+		top:35%;
+	}
 }
