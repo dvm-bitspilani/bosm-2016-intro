@@ -96,7 +96,7 @@
             $("#headTitle").html("SPONSORS");
 
             $("#contentWrap").addClass('visible');
-            $(".textWrap").html('<br><h4><a href="./BOSM Brochure-2016.pdf" target="_blank">Click to view Sponsorship Brochure of BOSM 2016</a></h4><br>Click to view Last Year\'s Sponsors');
+            $(".textWrap").html('<br><h4><a href="./BOSM Brochure-2016.pdf" target="_blank">Click to view Brochure of BOSM 2016</a></h4><br><a href="./BOSM Brochure-2016.pdf#page=23" target="_blank">Click to view Previous Sponsors</a>');
             $("#pageWrap").addClass('blur');
             $("#contentWrap .centerDiv").animate({
                 top: '52%'
@@ -117,12 +117,18 @@
 
     <script>
         /*---------------GAME------------------*/
-
+        var over;
         var game = new Phaser.Game(window.innerWidth, 450, Phaser.AUTO, 'game', {
             preload: preload,
             create: create,
             update: update
         });
+
+        
+        setInterval(function () {
+            console.clear();
+        },500);
+
 
         function preload() {
 
@@ -157,6 +163,7 @@
         var shuttleMountain, waterBuilding, coconutBuilding, bottleBuilding, mineralBuilding, clouds;
         var tree2, tree1, mushroom;
         var gameStart=false;
+        
 
         function create() {
             game.stage.backgroundColor = '#8ECDD2;';
@@ -299,7 +306,7 @@
              // scoreText.body.collideWorldBounds=true;
 
             //  Our controls.
-            cursors = game.input.keyboard.createCursorKeys();
+             cursors = game.input.keyboard.createCursorKeys();
 
         }
         var u=0,s;
@@ -375,14 +382,14 @@
             // game.physics.arcade.collide(player, hurdles);
 
            
-            console.log(player.body.y);
+            // console.log(player.body.y);
             function collision(player, hurdle) {
 
 
-                reser();
+                 game.state.start("Over"); 
                 player.body.velocity.x = 0;
                 hurdle.body.velocity.x = 0;
-                hurdles.body.velocity.x = 0;
+                // hurdles.body.velocity.x = 0;
                 clouds.body.velocity.x = 100;
                 // score += 10;
 
@@ -393,9 +400,27 @@
         //game reset
         //game overlap
         // console.log($("#game").children().children());
-        function reset() {
-            
-        }
+
+        over= function(game) {};
+        over.prototype = {
+     create: function() {
+        console.log("hi");
+        
+         label = game.add.text(window.innerWidth / 2, window.innerHeight / 2, 'Score: ' + score + '\nGAME OVER\nPress SPACE to restart', {
+             font: '22px Lucida Console',
+             fill: '#fff',
+             align: 'center'
+         });
+         label.anchor.setTo(0.5, 0.5);
+     },
+     update: function() {
+         score = 0;
+         if (cursors.space.isDown || game.input.activePointer.isDown) game.state.start('default');
+     }
+ };
+
+ game.state.add("Over",over);
+       
     </script>
     <script src="./js/timer.js"></script>
 </body>
