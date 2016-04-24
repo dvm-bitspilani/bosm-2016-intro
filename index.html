@@ -76,18 +76,18 @@
             $("#pageWrap").addClass('blur');
             $("#contentWrap .centerDiv").animate({
                 top: '52%'
-            }, 1000);
+            }, 500);
         });
 
         $("#contact").click(function() {
             $("#headTitle").html("CONTACT");
 
             $("#contentWrap").addClass('visible');
-            $(".textWrap").html('<ul class="subcategory"><li><b>For Correspondence and Registration</b><br>Karthik Maddipoti<br>+91-8094040555<br>pcr@bits-bosm.org</li><li><b>Sports Secretary</b><br>Zalak Shah<br>+91-8239823200<br>sportsecretary@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Scheduling and Events</b><br>Viraj Gandotra<br>+91-7728834719 <br>controls@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Aditya Joshi<br>+91-9783099689<br>joshi@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Reception and Accommodation:</b><br>Shonhit Trehan<br>+91-8503855851<br>recnacc@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Rushil Handa<br>+91-8107134586<br>rushil@bits-bosm.org </li></ul><ul class="subcategory"><li><b>For Sponsorship and Marketing</b><br>Arnav Anand<br>+91-9929014797<br>sponsorship@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Malvika Paliwal<br>+91-7737801664<br>malvika@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Website Related Queries</b><br>webmaster@bits-bosm.org</li></ul>');
+            $(".textWrap").html('<ul class="subcategory"><li><b>For Correspondence and Registration</b><br>Karthik Maddipoti<br>+91-8094040555<br>pcr@bits-bosm.org</li><li><b>Sports Secretary</b><br>Zalak Shah<br>+91-8239823200<br>sportssecretary@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Scheduling and Events</b><br>Viraj Gandotra<br>+91-7728834719 <br>controls@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Aditya Joshi<br>+91-9783099689<br>joshi@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Reception and Accommodation:</b><br>Shonhit Trehan<br>+91-8503855851<br>recnacc@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Rushil Handa<br>+91-8107134586<br>rushil@bits-bosm.org </li></ul><ul class="subcategory"><li><b>For Sponsorship and Marketing</b><br>Arnav Anand<br>+91-9929014797<br>sponsorship@bits-bosm.org</li><li><b>Joint Sports Secretary</b><br>Malvika Paliwal<br>+91-7737801664<br>malvika@bits-bosm.org</li></ul><ul class="subcategory"><li><b>For Website Related Queries</b><br>webmaster@bits-bosm.org</li></ul>');
             $("#pageWrap").addClass('blur');
             $("#contentWrap .centerDiv").animate({
                 top: '52%'
-            }, 1000);
+            }, 500);
         });
 
 
@@ -96,20 +96,20 @@
             $("#headTitle").html("SPONSORS");
 
             $("#contentWrap").addClass('visible');
-            $(".textWrap").html('Click to view Sponsorship Brochure of BOSM 2016<br>Click to view Last Year\'s Sponsors');
+            $(".textWrap").html('<br><h4><a href="./BOSM Brochure-2016.pdf" target="_blank">Click to view Sponsorship Brochure of BOSM 2016</a></h4><br>Click to view Last Year\'s Sponsors');
             $("#pageWrap").addClass('blur');
             $("#contentWrap .centerDiv").animate({
                 top: '52%'
-            }, 1000);
+            }, 500);
         });
         $(".close,.back").click(function() {
 
             $(".centerDiv").animate({
                 top: '50%',
-            }, 1000);
+            }, 500);
             setTimeout(function() {
                 $("#contentWrap").removeClass('visible');
-            }, 1000);
+            }, 500);
             $("#pageWrap").removeClass('blur');
 
         })
@@ -156,6 +156,7 @@
         var hurdle;
         var shuttleMountain, waterBuilding, coconutBuilding, bottleBuilding, mineralBuilding, clouds;
         var tree2, tree1, mushroom;
+        var gameStart=false;
 
         function create() {
             game.stage.backgroundColor = '#8ECDD2;';
@@ -241,6 +242,7 @@
                  hurdle = hurdles.create(game.world.width, game.world.height - 130, 'hurdleImg');
             }
             hurdle.enableBody = true;
+          
             setInterval(function() {
 
                if(window.innerWidth<400){
@@ -268,6 +270,7 @@
                 mushroom = groundELem.create(game.world.width + game.world.randomX, game.world.height - 170, 'mushroom');
                 mushroom.scale.setTo(0.4, 0.4);
             }, 8000);
+            
             player = game.add.sprite(20, 150, 'dude');
             if(window.innerWidth<400){
             
@@ -289,7 +292,7 @@
                 fill: '#fff'
             });
         else
-            scoreText = game.add.text(100, 100, 'Score: 0', {
+            scoreText = game.add.text(100, 125, 'Score: 0', {
                 fontSize: '32px',
                 fill: '#fff'
             });
@@ -301,6 +304,9 @@
         }
         var u=0,s;
         function update() {
+            player.body.velocity.x = 0;
+            if(cursors.space.isDown || game.input.activePointer.isDown)
+                gameStart=true;
             // player.hitArea=-1;
             //motion after completion of a particular function
             // shuttleMountain.body.velocity.x = -10;
@@ -314,6 +320,8 @@
             // graphics2.body.velocity.x=-2;
             // // console.log(Math.floor(game.time.totalElapsedSeconds()));
             // score = Math.floor(game.time.totalElapsedSeconds())
+            if(gameStart){
+
             u++;
             if(u%100==0)
                 score++;
@@ -331,16 +339,7 @@
             // //  Collide the player and the stars with the platforms
              // game.physics.arcade.collide(player, scoreText);
             player.animations.play('walk');
-
-
-
-            game.physics.arcade.overlap(player, hurdles, collision, null, this);
-            //  Reset the players velocity (movement)
-            player.body.velocity.x = 0;
-
-            // game.physics.arcade.collide(player, hurdles);
-
-            if (cursors.left.isDown) {
+             if (cursors.left.isDown) {
                 //  Move to the left
                 if(window.innerWidth<400)
                 player.body.velocity.x = -150;    
@@ -366,11 +365,21 @@
                 else
                 player.body.velocity.y = -700;
             }
+
+        }
+
+            game.physics.arcade.overlap(player, hurdles, collision, null, this);
+            //  Reset the players velocity (movement)
+            
+
+            // game.physics.arcade.collide(player, hurdles);
+
+           
             console.log(player.body.y);
             function collision(player, hurdle) {
 
 
-
+                reser();
                 player.body.velocity.x = 0;
                 hurdle.body.velocity.x = 0;
                 hurdles.body.velocity.x = 0;
@@ -384,6 +393,9 @@
         //game reset
         //game overlap
         // console.log($("#game").children().children());
+        function reset() {
+            
+        }
     </script>
     <script src="./js/timer.js"></script>
 </body>
