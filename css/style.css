@@ -46,7 +46,7 @@ canvas{
 	margin:0;
 	padding: 0.7em 0;
 	background:rgb(47, 28, 16);
-	background-image:url(../img/screws.svg);
+	/* background-image:url(../img/screws.svg); */
 	background-repeat:no-repeat;
 	background-position:center center;
 	/* background- */
@@ -258,20 +258,36 @@ text-align: center;
 }
 
 #countdown{
-	/* display:block; */
-	/* width:0vw;
-	position: relative;
-	margin:0 auto; */
+	width:100vw;
 }
 
-#countdown canvas{
+
+#clockWrap{
+	width:50%;
+	margin: 0 auto;
+}
+
+#clock{
+	/* display:block; *//* 
+	width:0vw;
+	position: relative; */
+	margin:0 auto;
+	zoom: 0.42;
+	top:17px;
+	width:700.930053710938px;
+	/* margin:0 auto; */
+	/* left:9%; */
+	/* background:#333; */
+}
+
+/* #countdown canvas{
 	width:180px;
 	background:url(../img/screws.svg);
 	padding: 0 3px;
 	display:block;
 	position: relative;
 	margin:0 auto;
-}
+} */
 
 #game{
 	position: absolute;
