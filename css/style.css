@@ -295,7 +295,7 @@ canvas {
 #sun {
     right: 20%;
     top: 12%;
-    width: 8%;
+    /* width: 8%; */
     z-index: 20;
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
