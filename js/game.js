@@ -298,15 +298,15 @@ over.prototype = {
     create: function() {
         console.log("hi");
         gameReset = true;
-        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2, 'Score: ' + score + '\nGAME OVER\nPress SPACE to restart', {
-            font: '22px League-Spartan',
+        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
+            font: '18px League-Spartan',
             fill: '#fff',
             align: 'center'
         });
         label.anchor.setTo(0.5, 0.5);
         
-    trollFace=game.add.sprite(window.innerWidth/2-50,342,'trollFace');
-        trollFace.scale.setTo(0.5,0.5);
+    trollFace=game.add.sprite(window.innerWidth/2-30,365,'trollFace');
+        trollFace.scale.setTo(0.4,0.4);
     },
     update: function() {
 
