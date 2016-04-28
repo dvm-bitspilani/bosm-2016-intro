@@ -196,12 +196,12 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     if (!gameReset) {
-        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2 + 50, 'Press SPACE or\n CLICK on screen\nUse arrow keys to move', {
+        label2 = game.add.text(window.innerWidth / 2, window.innerHeight / 2 + 30, 'Press SPACE or\n CLICK on screen\nUse arrow keys to move', {
             font: '18px League-Spartan',
             fill: '#fff',
             align: 'center'
         });
-        label.anchor.setTo(0.5, 0.5);
+        label2.anchor.setTo(0.5, 0.5);
     }
 
 }
@@ -212,7 +212,7 @@ function update() {
     player.body.velocity.x = 0;
     if (cursors.space.isDown || game.input.activePointer.isDown) {
         gameStart = true;
-        label.destroy();
+        label2.destroy();
     }
 
     for (i = 0; i < hurdles.children.length - 1; i++)
@@ -298,7 +298,7 @@ over.prototype = {
     create: function() {
         console.log("hi");
         gameReset = true;
-        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
+        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2-10, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
             font: '18px League-Spartan',
             fill: '#fff',
             align: 'center'
