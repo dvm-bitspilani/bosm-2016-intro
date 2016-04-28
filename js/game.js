@@ -7,29 +7,29 @@ var game = new Phaser.Game(window.innerWidth, 450, Phaser.AUTO, 'game', {
 });
 
 
-setInterval(function () {
-    console.clear();
-},500);
+// setInterval(function () {
+//     console.clear();
+// },500);
 
 
 function preload() {
 
-    game.load.image('ground', '../img/ground.svg');
-    game.load.image('shuttleMountain', '../img/shuttle_mountain.png');
+    game.load.image('ground', 'img/ground.svg');
+    game.load.image('shuttleMountain', 'img/shuttle_mountain.png');
 
-    game.load.image('coconutBuilding', '../img/coconut_building.svg');
-    game.load.image('bottleBuilding', '../img/bottle_building.svg');
-    game.load.image('mineralBuilding', '../img/mineral_building2.svg');
-    game.load.image('tree1', '../img/tree1.svg');
-    game.load.image('tree2', '../img/tree2.svg');
-    game.load.image('mushroom', '../img/mushroom.svg');
-    game.load.image('clouds', '../img/clouds.svg');
-    game.load.image('waterBuilding', '../img/water_building.svg');
-    game.load.image('trollFace', '../img/shinchan2.png');
+    game.load.image('coconutBuilding', 'img/coconut_building.svg');
+    game.load.image('bottleBuilding', 'img/bottle_building.svg');
+    game.load.image('mineralBuilding', 'img/mineral_building2.svg');
+    game.load.image('tree1', 'img/tree1.svg');
+    game.load.image('tree2', 'img/tree2.svg');
+    game.load.image('mushroom', 'img/mushroom.svg');
+    game.load.image('clouds', 'img/clouds.svg');
+    game.load.image('waterBuilding', 'img/water_building.svg');
+    game.load.image('trollFace', 'img/shinchan2.png');
 
-    game.load.image('hurdleImg', '../img/hurdle.svg');
+    game.load.image('hurdleImg', 'img/hurdle.svg');
     // game.load.spritesheet('dude', 'assets/dude.png', 32, 48);*/
-    game.load.spritesheet('dude', '../img/imgseq.png', 174, 304);
+    game.load.spritesheet('dude', 'img/imgseq.png', 174, 304);
 
 }
 
