@@ -34,7 +34,7 @@ function preload() {
 }
 
 var platforms;
-var graphics, groundELem, graphics1, graphics2;
+var graphics, groundELem1,groundELem2,groundELem3,groundELem4, graphics1, graphics2;
 var cursors;
 var player;
 var man;
@@ -107,18 +107,26 @@ function create() {
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    groundELem = game.add.group();
-    groundELem.enableBody = true;
-    clouds = groundELem.create(0, 10, 'clouds');
+    groundELem1 = game.add.group();
+    groundELem2 = game.add.group();
+    groundELem3 = game.add.group();
+    groundELem4 = game.add.group();
+    groundELem1.enableBody = true;
+    groundELem2.enableBody = true;
+    groundELem3.enableBody = true;
+    groundELem4.enableBody = true;
+    clouds = groundELem4.create(0, 10, 'clouds');
     clouds.scale.setTo(0.6, 0.6);
     clouds.enableBody = true;
-    tree1 = groundELem.create(750, game.world.height - 240, 'tree1');
+
+
+    tree1 = groundELem1.create(750, game.world.height - 240, 'tree1');
     tree1.scale.setTo(0.4, 0.4);
     tree1.enableBody = true;
-    tree2 = groundELem.create(220, game.world.height - 210, 'tree2');
+    tree2 = groundELem2.create(220, game.world.height - 210, 'tree2');
     tree2.scale.setTo(0.27, 0.27);
     tree2.enableBody = true;
-    mushroom = groundELem.create(150, game.world.height - 170, 'mushroom');
+    mushroom = groundELem3.create(150, game.world.height - 170, 'mushroom');
     mushroom.scale.setTo(0.4, 0.4);
     mushroom.enableBody = true;
     
@@ -156,14 +164,14 @@ function create() {
 
 
     setInterval(function() {
-        clouds = groundELem.create(0 - game.world.randomX, 10 * (1 + Math.random()), 'clouds');
+        clouds = groundELem4.create(0 - game.world.randomX, 10 * (1 + Math.random()), 'clouds');
         clouds.scale.setTo(0.6, 0.6);
 
-        tree1 = groundELem.create(game.world.width + game.world.randomX, game.world.height - 240, 'tree1');
+        tree1 = groundELem1.create(game.world.width + game.world.randomX, game.world.height - 240, 'tree1');
         tree1.scale.setTo(0.4, 0.4);
-        tree2 = groundELem.create(game.world.width + game.world.randomX, game.world.height - 210, 'tree2');
+        tree2 = groundELem2.create(game.world.width + game.world.randomX, game.world.height - 210, 'tree2');
         tree2.scale.setTo(0.27, 0.27);
-        mushroom = groundELem.create(game.world.width + game.world.randomX, game.world.height - 170, 'mushroom');
+        mushroom = groundELem3.create(game.world.width + game.world.randomX, game.world.height - 170, 'mushroom');
         mushroom.scale.setTo(0.4, 0.4);
     }, 8000);
     mushroom.z = 30;
@@ -218,6 +226,20 @@ function update() {
     for (i = 0; i < hurdles.children.length - 1; i++)
         if (Math.abs(hurdles.children[i].x - hurdles.children[i + 1].x) < 300)
             hurdles.children[i + 1].destroy();
+
+    for (i = 0; i < groundELem1.children.length - 1; i++)
+        if (Math.abs(groundELem1.children[i].x - groundELem1.children[i + 1].x) < 300)
+            groundELem1.children[i + 1].destroy();
+
+    for (i = 0; i < groundELem2.children.length - 1; i++)
+        if (Math.abs(groundELem2.children[i].x - groundELem2.children[i + 1].x) < 300)
+            groundELem2.children[i + 1].destroy();
+
+     for (i = 0; i < groundELem3.children.length - 1; i++)
+        if (Math.abs(groundELem3.children[i].x - groundELem3.children[i + 1].x) < 300)
+            groundELem3.children[i + 1].destroy();
+
+    
      
     if (gameStart) {
 

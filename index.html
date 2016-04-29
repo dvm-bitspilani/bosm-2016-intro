@@ -6,7 +6,13 @@
     </title>
 
           
-    <meta name="description" content="">
+    <meta name="description" content="With the last year's edition
+    witnessing phenomenal participation from colleges both from India and abroad,
+    the 31st edition guarantees excitement well supplemented by floodlit matches
+    in the evening and the unbridled enthusiasm of the crowds for highly
+    competitive track and off-track events, in the true spirit of sportsmanship
+    and camaraderie. 15th September - 19th September. BOSM 2016. Come, battle it
+    out, with grit and guts, in pursuit of glory.">
     <meta name="viewport" content="width=device-width">
 
     <meta name="robots" content="index, follow">
@@ -29,7 +35,7 @@
     competitive track and off-track events, in the true spirit of sportsmanship
     and camaraderie. 15th September - 19th September. BOSM 2016. Come, battle it
     out, with grit and guts, in pursuit of glory.">
-    <meta property="og:image" content="http://www.bits-bosm.org/img/facebook32c.png">
+    <meta property="og:image" content="http://www.bits-bosm.org/img/ogimage.jpg">
     <meta property="og:type" content="website">
 
 
@@ -41,7 +47,10 @@
     <script type="text/javascript" src="./js/flipclock.min.js"></script>
 </head>
 
-<body>
+<body  onload="loader()" >
+    <div id="cover" class="cover">
+        <img src="./img/loading.gif" id="loader" class="loader"/>
+    </div>
     <div id="pageWrap">
         <div id="header">
 
@@ -113,6 +122,13 @@
     </div>
     <!-- <img id="timer" src="./img/timer.svg" alt=""> -->
     <script>
+
+         function loader()
+        {
+          $('#cover').css({"display":"none"});
+        }
+
+
         // $("#contentWrap").hide();
         $("#about").click(function() {
             $("#headTitle").html("ABOUT US");
