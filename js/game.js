@@ -121,7 +121,7 @@ function create() {
     mushroom = groundELem.create(150, game.world.height - 170, 'mushroom');
     mushroom.scale.setTo(0.4, 0.4);
     mushroom.enableBody = true;
-    console.log(mushroom.x)
+    
 
 
 
@@ -146,7 +146,7 @@ function create() {
             hurdle.scale.setTo(0.6, 0.6);
         } else {
             hurdle = hurdles.create(game.world.width + game.world.randomX, game.world.height - 130, 'hurdleImg');
-            // console.log(hurdle.body.x);
+            
         }
 
         hurdle.enableBody = true;
@@ -196,7 +196,7 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     if (!gameReset) {
-        label2 = game.add.text(window.innerWidth / 2, window.innerHeight / 2 + 30, 'Press SPACE or\n CLICK on screen\nUse arrow keys to move', {
+        label2 = game.add.text(window.innerWidth / 2, window.innerHeight / 2+20, 'Press SPACE or\n CLICK on screen\nUse arrow keys to move', {
             font: '18px League-Spartan',
             fill: '#fff',
             align: 'center'
@@ -296,9 +296,9 @@ function update() {
 over = function(game) {};
 over.prototype = {
     create: function() {
-        console.log("hi");
+        
         gameReset = true;
-        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2-10, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
+        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2-30, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
             font: '18px League-Spartan',
             fill: '#fff',
             align: 'center'
