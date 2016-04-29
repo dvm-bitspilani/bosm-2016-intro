@@ -82,7 +82,7 @@
             height=21" scrolling="no" frameborder="0" id="fblike" allowTransparency="true"></iframe>
 
             <div id="social">
-                <a href="http://bits-bosm.org/2015" target="_blank"><img id="bosm15" src="./img/bosm15white.png" onmouseover="this.src='./img/bosm15c.png'" onmouseout="this.src='./img/bosm15white.png'"></a>
+                <a href="http://bits-bosm.org/2015main" target="_blank"><img id="bosm15" src="./img/bosm15white.png" onmouseover="this.src='./img/bosm15c.png'" onmouseout="this.src='./img/bosm15white.png'"></a>
                 <a href="http://www.youtube.com/user/bitsbosm" target="_blank"><img id="yout" src="./img/youtube32.png" onmouseover="this.src='./img/youtube32c.png'" onmouseout="this.src='./img/youtube32.png'"></a>
                 <a href="https://twitter.com/BOSM_BITSPilani" target="_blank"><img id="twt" src="./img/twitter32.png" onmouseover="this.src='./img/twitter32c.png'" onmouseout="this.src='./img/twitter32.png'"></a>
                 <a href="https://www.facebook.com/bosmbitspilani" target="_blank"><img id="fb" src="./img/facebook32.png" onmouseover="this.src='./img/facebook32c.png'" onmouseout="this.src='./img/facebook32.png'"></a>
@@ -173,6 +173,10 @@
                 clockFace: 'DailyCounter',
                 countdown: true
             });
+        });
+
+        $(document).bind("contextmenu",function(e) {
+            e.preventDefault();
         });
     </script>
 </body>
