@@ -497,4 +497,8 @@ canvas {
     #logo{
         width:40%;
     }
+
+    .centerDiv{
+        width:85%;
+    }
 }
