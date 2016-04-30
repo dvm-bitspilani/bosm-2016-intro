@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/flipclock.css">
     <link rel="shortcut icon" href="./img/favicon.ico" />
-    <script type="text/javascript" src="./js/phaser.min.js"></script>
+    <script type="text/javascript" src="./js/phaser-arcade-physics.min.js"></script>
     <script src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/flipclock.min.js"></script>
 </head>
@@ -190,6 +190,13 @@
                 countdown: true
             });
         });
+
+        setTimeout(function(){
+
+        console.clear();
+
+        console.log('%c  Developers: Partho Sarthi,Pulkit Aggarwal  ','background: #450f78; color: #fff');
+        },2000);
 
         // $(document).bind("contextmenu",function(e) {
         //     e.preventDefault();

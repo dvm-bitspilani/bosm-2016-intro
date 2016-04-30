@@ -47,12 +47,13 @@ var shuttleMountain, waterBuilding, coconutBuilding, bottleBuilding, mineralBuil
 var tree2, tree1, mushroom;
 var gameStart = false,
     gameReset = false;
-
+var flag=1;
+// var hurdlecreate=false;
 
 function create() {
 
 
-    game.stage.backgroundColor = '#8ECDD2;';
+    game.stage.backgroundColor = '#8ECDD2';
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -142,27 +143,13 @@ function create() {
 
     if (window.innerWidth < 400) {
         hurdle = hurdles.create(game.world.width, game.world.height - 85, 'hurdleImg');
+
         hurdle.scale.setTo(0.6, 0.6);
     } else {
         hurdle = hurdles.create(game.world.width, game.world.height - 130, 'hurdleImg');
     }
     hurdle.enableBody = true;
-    setInterval(function() {
-
-        if (window.innerWidth < 400) {
-            hurdle = hurdles.create(game.world.width + game.world.randomX, game.world.height - 85, 'hurdleImg');
-            hurdle.scale.setTo(0.6, 0.6);
-        } else {
-            hurdle = hurdles.create(game.world.width + game.world.randomX, game.world.height - 130, 'hurdleImg');
-            
-        }
-
-        hurdle.enableBody = true;
-        // hurdle.body.collideWorldBounds=true;
-        // hurdle.scale.setTo(0.2,0.2);
-    }, 3000);
-
-
+   
     setInterval(function() {
         clouds = groundELem4.create(0 - game.world.randomX, 10 * (1 + Math.random()), 'clouds');
         clouds.scale.setTo(0.6, 0.6);
@@ -202,13 +189,17 @@ function create() {
     // scoreText.body.collideWorldBounds=true;
 
     //  Our controls.
+
     cursors = game.input.keyboard.createCursorKeys();
     if (!gameReset) {
-        label2 = game.add.text(window.innerWidth / 2, window.innerHeight / 2+20, 'Press SPACE or\n CLICK on screen\nUse arrow keys to move', {
+        label2 = game.add.text(window.innerWidth / 2, game.world.height-100, 'Press SPACE or\n CLICK on screen\nUse arrow keys to move', {
             font: '18px League-Spartan',
             fill: '#fff',
             align: 'center'
         });
+        label2.stroke = '#000000';
+    label2.strokeThickness = 3;
+    // label2.fill = '#43d637';
         label2.anchor.setTo(0.5, 0.5);
     }
 
@@ -217,43 +208,63 @@ var u = 0,
     s;
 
 function update() {
+   
+
+        // console.log('hi');
     player.body.velocity.x = 0;
     if (cursors.space.isDown || game.input.activePointer.isDown) {
         gameStart = true;
+        // hurdlecreate=true;
+        hurdlecreate();
         label2.destroy();
     }
 
     for (i = 0; i < hurdles.children.length - 1; i++)
         if (Math.abs(hurdles.children[i].x - hurdles.children[i + 1].x) < 300)
-            hurdles.children[i + 1].destroy();
+            hurdles.children[i].destroy();
 
     for (i = 0; i < groundELem1.children.length - 1; i++)
+      
         if (Math.abs(groundELem1.children[i].x - groundELem1.children[i + 1].x) < 300)
-            groundELem1.children[i + 1].destroy();
+            groundELem1.children[i].destroy();
+    
+
 
     for (i = 0; i < groundELem2.children.length - 1; i++)
         if (Math.abs(groundELem2.children[i].x - groundELem2.children[i + 1].x) < 300)
-            groundELem2.children[i + 1].destroy();
+            groundELem2.children[i].destroy();
 
      for (i = 0; i < groundELem3.children.length - 1; i++)
         if (Math.abs(groundELem3.children[i].x - groundELem3.children[i + 1].x) < 300)
-            groundELem3.children[i + 1].destroy();
+            groundELem3.children[i].destroy();
 
     
-     
+    // console.log(gameStart);
     if (gameStart) {
-
+        
         u++;
         if (u % 100 == 0)
             score++;
         scoreText.text = 'Score: ' + score;
-        tree1.body.velocity.x = -40;
-        tree2.body.velocity.x = -50;
-        mushroom.body.velocity.x = -70;
-        if (window.innerWidth < 560)
+        groundELem1.children[0].body.velocity.x=-40;
+        groundELem2.children[0].body.velocity.x=-40;
+        groundELem3.children[0].body.velocity.x=-40;
+
+         if (window.innerWidth < 560)
             s = 0.5;
         else
             s = 1;
+
+        if(tree1.alive)
+        tree1.body.velocity.x = s * (-40 - (50 * Math.floor(score / 10)));
+
+        if(tree2.alive)
+        tree2.body.velocity.x = s * (-50 - (50 * Math.floor(score / 10)));
+        if(mushroom.alive)
+        mushroom.body.velocity.x =s * ( -70 -(50 * Math.floor(score / 10)));
+
+       
+        if(hurdle.alive)
         hurdle.body.velocity.x = -s * (350 + (80 * Math.floor(score / 10)));
         clouds.body.velocity.x = 30;
 
@@ -280,7 +291,7 @@ function update() {
 
         // console.log(cursors.up.isDown ,player.body.y,game.world.height);
         //  Allow the player to jump if they are touching the ground.
-        if ((cursors.up.isDown || cursors.space.isDown || game.input.activePointer.isDown) && player.body.y > 250) {
+        if ((game.input.activePointer.isDown || game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) || game.input.keyboard.isDown(Phaser.Keyboard.UP)) && player.body.y > 250) {
             if (window.innerWidth < 400)
                 player.body.velocity.y = -400;
             else
@@ -300,11 +311,12 @@ function update() {
     function collision(player, hurdle) {
 
         hurdles.destroy();
+        // console.log(game.state.start("Over"));
+        // player.body.velocity.x = 0;
+        // // hurdles.body.velocity.x = 0;
+        // clouds.body.velocity.x = 100;
+
         game.state.start("Over");
-        player.body.velocity.x = 0;
-        hurdle.body.velocity.x = 0;
-        // hurdles.body.velocity.x = 0;
-        clouds.body.velocity.x = 100;
         // score += 10;
 
     }
@@ -315,26 +327,53 @@ function update() {
 //game overlap
 // console.log($("#game").children().children());
 
+
+
 over = function(game) {};
 over.prototype = {
     create: function() {
         
         gameReset = true;
-        label = game.add.text(window.innerWidth / 2, window.innerHeight / 2-30, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
-            font: '18px League-Spartan',
+        label = game.add.text(window.innerWidth / 2, game.world.height -160, 'Score: ' + score + '\nGAME OVER\nPress SPACE or\nCLICK to restart', {
+            font: '17px League-Spartan',
             fill: '#fff',
             align: 'center'
         });
+         
         label.anchor.setTo(0.5, 0.5);
         
-    trollFace=game.add.sprite(window.innerWidth/2-30,365,'trollFace');
+    trollFace=game.add.sprite(window.innerWidth/2-30,game.world.height-90,'trollFace');
         trollFace.scale.setTo(0.4,0.4);
     },
     update: function() {
 
         score = 0;
-        if (cursors.space.isDown || game.input.activePointer.isDown) game.state.start('default');
+        // if (cursors.space.isDown || game.input.activePointer.isDown)
+        if (game.input.activePointer.isDown || game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) || game.input.keyboard.isDown(Phaser.Keyboard.UP))
+         game.state.start('default');
     }
 };
-
 game.state.add("Over", over);
+
+function hurdlecreate() {
+    if(flag==1)
+    {
+       if (window.innerWidth < 400) {
+        setInterval(function() {        
+            hurdle = hurdles.create(game.world.width + game.world.randomX, game.world.height - 85, 'hurdleImg');
+            hurdle.scale.setTo(0.6, 0.6);   
+            hurdle.enableBody = true;
+        // hurdle.body.collideWorldBounds=true;
+        // hurdle.scale.setTo(0.2,0.2);
+        }, 2500);
+       } else {
+        setInterval(function() {        
+            hurdle = hurdles.create(game.world.width + game.world.randomX, game.world.height - 130, 'hurdleImg');
+            hurdle.enableBody = true;
+        // hurdle.body.collideWorldBounds=true;
+        // hurdle.scale.setTo(0.2,0.2);
+        }, 2000);         
+       }
+    }
+    flag=0;
+}
