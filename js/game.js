@@ -221,22 +221,22 @@ function update() {
 
     for (i = 0; i < hurdles.children.length - 1; i++)
         if (Math.abs(hurdles.children[i].x - hurdles.children[i + 1].x) < 300)
-            hurdles.children[i].destroy();
+            hurdles.children[i+1].destroy();
 
     for (i = 0; i < groundELem1.children.length - 1; i++)
       
         if (Math.abs(groundELem1.children[i].x - groundELem1.children[i + 1].x) < 300)
-            groundELem1.children[i].destroy();
+            groundELem1.children[i+1].destroy();
     
 
 
     for (i = 0; i < groundELem2.children.length - 1; i++)
         if (Math.abs(groundELem2.children[i].x - groundELem2.children[i + 1].x) < 300)
-            groundELem2.children[i].destroy();
+            groundELem2.children[i+1].destroy();
 
      for (i = 0; i < groundELem3.children.length - 1; i++)
         if (Math.abs(groundELem3.children[i].x - groundELem3.children[i + 1].x) < 300)
-            groundELem3.children[i].destroy();
+            groundELem3.children[i+1].destroy();
 
     
     // console.log(gameStart);
